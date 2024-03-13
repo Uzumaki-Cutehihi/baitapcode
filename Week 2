@@ -1,0 +1,44 @@
+1.
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+   int n;
+   cin >> n;
+   int a[n],g[n];
+   for(int i=0;i<n;i++){
+       cin >> a[i];
+       g[i]=a[i];
+   }
+   for(int i=0;i<n;i++){
+       int s=0;
+       while(g[i]>0){
+           if(g[i]%10!=0){
+               int t=g[i]%10;
+               g[i]=g[i]/10;
+               if(a[i]%t==0){
+                   s++;
+               }
+           }else{
+               g[i]=g[i]/10;
+           }
+       }
+       cout << s << "\n";
+   }
+}
+2.
+string kangaroo(int x1, int v1, int x2, int v2) {
+    int g=x2-x1;
+    if(x1==x2){
+        return "YES";
+    }else if((v1==v2)&&(x1!=x2)){
+        return "NO";
+    }
+    else if((g%(v2-v1)==0)&&(((x2>x1)&&(v1>v2))||(x1>x2)&&(v2>v1))){
+        return "YES";
+    }else{
+        return "NO";
+    }
+}
+3.
+
+
