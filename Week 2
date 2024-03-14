@@ -40,5 +40,23 @@ string kangaroo(int x1, int v1, int x2, int v2) {
     }
 }
 3.
-
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n,k;
+    cin >> n >> k;
+    int a[n];
+    for(int i=0;i<n;i++){
+        cin >> a[i];
+    }
+    int s=0;
+    for(int i=0;i<n-1;i++){
+        for(int j=i+1;j<n;j++){
+            if((a[i]+a[j])%k==0){
+                s++;
+            }
+        }
+    }
+    cout << s;
+}
 
