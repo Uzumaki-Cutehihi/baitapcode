@@ -29,39 +29,30 @@ int main(){
     }}
 }
 2.
-
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-int max(int const a[], int n){
-    int max=a[0];
-    for(int i=1;i<n;i++){
-        if(a[i]>max){
-            max=a[i];
-        }
-    }
-    return max;
-}
 int main(){
-    int n;
-    cin >> n;
-    int a[n];
-    for(int i=0;i<n;i++){
-        cin >> a[i];
-    }
-    sort(a,a+n);
-    int s[n];
-    for(int i=0;i<n;i++){
-        s[i]=1;
-    }
-    int t=0;
-    for(int i=1;i<n;i++){
-        if(a[i]==a[i-1]){
-            s[t]++;
-        }else{
-        t++;}
-    }
-    cout << n-max(s,t);}
+   int n;
+   cin >> n;
+   int a[n],s[n];
+   for(int i=0;i<n;i++){
+       cin >> a[i];
+   }
+   s[0]=1;
+   sort(a,a+n);
+   int t=0;
+   for(int i=0;i<n-1;i++){
+       if(a[i]==a[i+1]){
+           s[t]++;
+       }else{
+           t++;
+           s[t]=1;
+       }
+}
+sort(s,s+t+1);
+cout << n- s[t];}
 
 3.
+
 
 
