@@ -1,0 +1,17 @@
+1.
+#include <bits/stdc++.h>
+using namespace std;
+struct infor
+{
+    int age;
+    string firstname;
+    string lastname;
+    int standard;
+};
+int main(){
+    infor student;
+    cin >> student.age >> student.firstname >> student.lastname >> student.standard;
+    cout << student.age << " " << student.firstname << " " << student.lastname << " " << student.standard;
+    
+}
+2.
