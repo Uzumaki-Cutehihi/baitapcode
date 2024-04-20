@@ -1,0 +1,176 @@
+1.
+#include <bits/stdc++.h>
+using namespace std;
+void update(int* x,int* y){
+    int c,d;
+    c=(*x)+(*y);
+    d = abs((*x)-(*y));
+    *x=c;
+    *y=d;
+}
+int main(){
+    int x,y;
+    cin >> x >> y;
+    update(&x,&y);
+    cout << x << "\n" << y;
+}
+2.
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin >> n;
+    vector <int> v(n);
+    for(int i=0;i<n;i++){
+        cin >> v[i];
+    }
+    sort(v.begin(),v.end());
+    for(int i=0;i<v.size();i++){
+        cout << v[i] << " ";
+    }
+}
+3.
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin >> n;
+    vector <int> v(n);
+    for(int i=0;i<n;i++){
+        cin >> v[i];
+    }
+    int x;
+    cin >> x;
+    v.erase(v.begin()+x-1);
+    int a,b;
+    cin >> a >> b;
+    v.erase(v.begin()+ a - 1, v.begin() + b - 1);
+    for(int i=0;i<v.size();i++){
+        cout << v[i] << " ";
+    }
+}
+4.
+#include <bits/stdc++.h>
+using namespace std;
+int easycheck(int x, vector <int> v)
+{
+    int a[1000],t=0;
+    for(int i=0;i<v.size();i++){
+        if(x==v[i]){
+            a[t]=i+1;
+            t++;
+        }
+    }
+    return a[0];
+}
+int mincheck(int x, vector <int> v){
+    int a[1000],t=0;
+    for(int i=0;i<v.size();i++){
+        if(v[i]>x){
+            a[t]=v[i];
+            t++;
+        }
+    }
+    int mina=a[0];
+    for(int i=1;i<t;i++){
+        if(a[i]<mina){
+            mina=a[i];
+        }
+    }
+    return mina;
+}
+int main()
+{
+    int n;
+    cin >> n;
+    vector <int> v(n);
+    for(int i=0;i<n;i++){
+        cin >> v[i];
+    }
+    int m; cin >> m; int a[m];
+    for(int i=1;i<=m;i++){
+        cin >> a[i];}
+    for(int i=1;i<=m;i++){
+        int flag = 0;
+        for(int j=0;j<n;j++){
+            if(a[i]==v[j]){
+                flag=1;
+            }
+        }
+        if(flag==1){
+            cout << "Yes" << " " << easycheck(a[i],v) << "\n";
+        }
+        else{
+            cout << "No" << " " << easycheck(mincheck(a[i],v),v) << "\n";
+        }
+    }
+}
+5.
+#include <bits/stdc++.h>
+using namespace std;
+void erasev(int x, vector <int> &v)
+{
+    for(int i=0;i<v.size();i++){
+        if(x==v[i]){
+            v.erase(v.begin()+i);
+        }
+    }
+}
+int main()
+{
+    int n;
+    cin >> n;
+    int x[n],y[n];
+    for(int i=0;i<n;i++){
+        cin >> x[i] >> y[i];
+    }
+    vector <int> v;
+    for(int i=0;i<n;i++){
+        if(x[i]==1){
+            v.push_back(y[i]);
+        }else if(x[i]==2)
+        {
+            erasev(y[i],v);
+        }else{
+            int flag=0;
+            for(int j=0;j<v.size();j++){
+                if(v[j]==y[i]){
+                    flag=1;
+                }
+            }
+            if(flag==1){
+                cout << "Yes" << "\n";
+            }else{
+            cout << "No" << "\n";
+        }
+    }
+}}
+6.
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    int a[1000], t=0;
+    cin >> n;
+    unordered_map<string, int> scores; //Luu diem cua sinh vien
+    for(int i=1;i<=n;i++){
+        int type, bonus;
+        string name;
+        cin >> type >> name;
+        if(type==1){
+            cin >> bonus;
+            scores[name]=scores[name]+bonus;
+        }else if(type==2){
+            scores.erase(name);
+        }else{
+            a[t]=scores[name];
+            t++;
+        }
+    }
+    for(int i=0;i<t;i++){
+        cout << a[i] << "\n";
+    }
+}
