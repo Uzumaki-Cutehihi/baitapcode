@@ -15,3 +15,132 @@ int main(){
     
 }
 2.
+#include <iostream>
+#include <sstream>
+#include <bits/stdc++.h>
+
+using namespace std;
+class Student{
+    private:
+    int age;
+    string first_name;
+    string last_name;
+    int standard;
+    public:
+    void set_age(int a){
+        age = a;
+    }
+    int get_age(){
+        return age;
+    }
+    void set_standard(int a){
+        standard = a;
+    }
+    int get_standard(){
+        return standard;
+    }void set_first_name(string a){
+        first_name = a;
+    }
+    string get_first_name(){
+        return first_name;
+    }void set_last_name(string a){
+        last_name = a;
+    }
+    string get_last_name(){
+        return last_name;
+    }
+};
+int main() {
+    int age, standard;
+    string first_name, last_name;
+    
+    cin >> age >> first_name >> last_name >> standard;
+    
+    Student st;
+    st.set_age(age);
+    st.set_standard(standard);
+    st.set_first_name(first_name);
+    st.set_last_name(last_name);
+    
+    cout << st.get_age() << "\n";
+    cout << st.get_last_name() << ", " << st.get_first_name() << "\n";
+    cout << st.get_standard() << "\n";
+    cout << "\n";
+    cout << age << "," << first_name << "," << last_name << "," << standard;
+    
+    return 0;
+}
+
+3.
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <cassert>
+using namespace std;
+
+class Student
+{
+    private:
+        int sc1,sc2,sc3,sc4,sc5;
+    public:
+       void input(){
+           int x1,x2,x3,x4,x5;
+           cin >> x1 >> x2 >> x3 >> x4 >> x5;
+           sc1 = x1;
+           sc2 = x2;
+           sc3 = x3;;
+           sc4 = x4;
+           sc5 = x5;
+       }
+       int calculateTotalScore(){
+           int num = sc1+sc2+sc3+sc4+sc5;
+           return num;
+       }
+};
+int main() {
+    int n; // number of students
+    cin >> n;
+    Student *s = new Student[n]; // an array of n students
+    
+    for(int i = 0; i < n; i++){
+        s[i].input();
+    }
+
+    // calculate kristen's score
+    int kristen_score = s[0].calculateTotalScore();
+
+    // determine how many students scored higher than kristen
+    int count = 0; 
+    for(int i = 1; i < n; i++){
+        int total = s[i].calculateTotalScore();
+        if(total > kristen_score){
+            count++;
+        }
+    }
+
+    // print result
+    cout << count;
+    
+    return 0;
+}
+4.
+class Box{
+    private:
+        int l,b,h;
+    public:
+        int getLength(){
+            return l;
+        }
+        int getBreath(){
+            return b;
+        }
+        int getHeight(){
+            return h;
+        }
+        long long CalculateVolume(){
+            return l*b*h;
+        }
+        
+};
